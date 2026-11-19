@@ -24,7 +24,7 @@ import FundingInvestment from "./Pages/Programs/FundingInvestment";
 import ScrollToTop from "./Components/ScrollToTop";
 import { ThemeProvider } from "./ThemeContext";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
-import AutoScroll from "./Components/Autoscroll";
+import AutoScroll from "./Components/AutoScroll";
 
 function App() {
   return (
