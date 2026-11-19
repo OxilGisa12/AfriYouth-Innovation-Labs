@@ -112,7 +112,9 @@ const Insights = () => {
   const filteredArticles =
     activeCategory === "All Insights"
       ? articles
-      : articles.filter((article) => article.category === activeCategory);
+      : articles.filter(
+          (article) => article.category === activeCategory
+        );
 
   return (
     <main className="afri-insights overflow-hidden bg-white text-[#10466B]">
@@ -269,14 +271,16 @@ const Insights = () => {
           </div>
 
           {/* FILTERS */}
-          <div className="afri-reveal afri-reveal-4 mb-10 flex flex-wrap gap-2">
+          <div className="mb-10 flex flex-wrap gap-2">
             {categories.map((category) => (
               <button
                 key={category}
+                type="button"
+                aria-pressed={activeCategory === category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2.5 text-sm font-bold transition ${
+                className={`rounded-full px-4 py-2.5 text-sm font-bold transition-all duration-200 ${
                   activeCategory === category
-                    ? "bg-[#10466B] text-white"
+                    ? "bg-[#10466B] text-white shadow-sm"
                     : "border border-gray-200 bg-white text-gray-600 hover:border-[#0891A2] hover:text-[#0891A2]"
                 }`}
               >
@@ -285,13 +289,36 @@ const Insights = () => {
             ))}
           </div>
 
+          {/* ACTIVE FILTER LABEL */}
+          <div className="mb-6 flex items-center justify-between gap-3">
+            <p className="text-sm text-gray-500">
+              Showing{" "}
+              <span className="font-bold text-[#10466B]">
+                {filteredArticles.length}
+              </span>{" "}
+              {filteredArticles.length === 1 ? "insight" : "insights"}
+            </p>
+
+            {activeCategory !== "All Insights" && (
+              <button
+                type="button"
+                onClick={() => setActiveCategory("All Insights")}
+                className="text-sm font-bold text-[#0891A2] transition hover:text-[#F47721]"
+              >
+                Clear filter
+              </button>
+            )}
+          </div>
+
           {/* ARTICLE GRID */}
-          <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
-            {filteredArticles.map((article, index) => (
+          <div
+            className="grid gap-7 md:grid-cols-2 lg:grid-cols-3"
+            aria-live="polite"
+          >
+            {filteredArticles.map((article) => (
               <article
                 key={article.title}
-                style={{ animationDelay: `${0.1 + (index % 3) * 0.15}s` }}
-                className="afri-reveal group flex flex-col border border-gray-100 bg-white transition hover:-translate-y-1 hover:border-[#0891A2]/40"
+                className="group flex flex-col border border-gray-100 bg-white transition duration-300 hover:-translate-y-1 hover:border-[#0891A2]/40"
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -352,14 +379,13 @@ const Insights = () => {
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {focusAreas.map((area, index) => {
+            {focusAreas.map((area) => {
               const Icon = area.icon;
 
               return (
                 <article
                   key={area.title}
-                  style={{ animationDelay: `${0.1 + index * 0.15}s` }}
-                  className="afri-reveal bg-white p-7 transition hover:-translate-y-1"
+                  className="bg-white p-7 transition duration-300 hover:-translate-y-1"
                 >
                   <Icon size={29} className="text-[#0891A2]" />
 
@@ -395,13 +421,13 @@ const Insights = () => {
             Connect with AfriYouth and follow the ideas informing our work.
           </p>
 
-            <Link
-              to="/reach-us"
-              className="afri-button inline-flex items-center gap-3 bg-[#F47721] hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-full mt-8"
-            >
-              Connect With Us
-              <ArrowRight size={19} />
-            </Link>
+          <Link
+            to="/reach-us"
+            className="afri-button mt-8 inline-flex items-center gap-3 rounded-full bg-[#F47721] px-8 py-4 font-bold text-white transition hover:bg-orange-600"
+          >
+            Connect With Us
+            <ArrowRight size={19} />
+          </Link>
 
         </div>
       </section>
