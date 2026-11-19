@@ -1,0 +1,921 @@
+
+@import "tailwindcss";
+
+/* =========================================
+   AFRIYOUTH — GLOBAL ANIMATION SYSTEM
+========================================= */
+
+@keyframes afriFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes afriFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   SCROLL REVEAL — INITIAL STATE
+========================================= */
+
+body.afri-scroll-ready .afri-reveal,
+body.afri-scroll-ready .afri-image-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  animation: none !important;
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+body.afri-scroll-ready .afri-image-reveal {
+  transform: translateY(40px) scale(0.97);
+}
+
+/* =========================================
+   SCROLL REVEAL — VISIBLE STATE
+========================================= */
+
+body.afri-scroll-ready .afri-reveal.afri-in-view,
+body.afri-scroll-ready .afri-image-reveal.afri-in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* =========================================
+   STAGGERED ANIMATION TIMING
+========================================= */
+
+.afri-reveal-1 { transition-delay: 0.05s !important; }
+.afri-reveal-2 { transition-delay: 0.12s !important; }
+.afri-reveal-3 { transition-delay: 0.19s !important; }
+.afri-reveal-4 { transition-delay: 0.26s !important; }
+.afri-reveal-5 { transition-delay: 0.33s !important; }
+
+/* =========================================
+   REUSABLE REVEAL CLASSES
+========================================= */
+
+.afri-fade-in {
+  animation: afriFadeIn 0.8s ease forwards;
+}
+
+.afri-fade-up {
+  animation: afriFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* =========================================
+   CARD HOVER EFFECTS
+========================================= */
+
+.afri-hover-lift {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.afri-hover-lift:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 30px rgba(13, 6, 36, 0.12);
+}
+
+.group {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.group:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(13, 6, 36, 0.12);
+}
+
+/* =========================================
+   IMAGE HOVER EFFECTS
+========================================= */
+
+.afri-image-hover {
+  overflow: hidden;
+}
+
+.afri-image-hover img {
+  transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.afri-image-hover:hover img {
+  transform: scale(1.05);
+}
+
+.afri-image-reveal img {
+  transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.afri-image-reveal:hover img {
+  transform: scale(1.035);
+}
+
+/* =========================================
+   BUTTON HOVER EFFECTS
+========================================= */
+
+.afri-button {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.afri-button:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   AFRIYOUTH — THEME SYSTEM
+========================================= */
+
+/* LIGHT MODE — EXISTING BRAND IDENTITY */
+
+:root {
+  color-scheme: light;
+
+  --page-bg: #F7F2E7;
+  --surface-bg: #FFFFFF;
+  --surface-secondary: #F1EBDD;
+
+  --text-primary: #0D0624;
+  --text-secondary: #55516A;
+
+  --border-color: #E5DFD2;
+
+  --brand-blue: #10466B;
+  --brand-orange: #F47721;
+
+  --navbar-bg: #FFFFFF;
+  --card-bg: #FFFFFF;
+
+  --theme-transition: 0.3s ease;
+}
+
+/* DARK MODE — AFRIYOUTH BRAND COLORS */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --page-bg: #0D0624;
+  --surface-bg: #17102F;
+  --surface-secondary: #21183D;
+
+  --text-primary: #F7F2E7;
+  --text-secondary: #C3BCD5;
+
+  --border-color: #302844;
+
+  --brand-blue: #0301FF;
+  --brand-orange: #F47721;
+
+  --navbar-bg: #0D0624;
+  --card-bg: #17102F;
+}
+
+/* =========================================
+   GLOBAL THEME APPLICATION
+========================================= */
+
+html {
+  background-color: var(--page-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition);
+}
+
+/* Theme-aware reusable classes */
+
+.afri-page {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+}
+
+.afri-surface {
+  background-color: var(--surface-bg);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.afri-surface-secondary {
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+}
+
+.afri-text-primary {
+  color: var(--text-primary);
+}
+
+.afri-text-secondary {
+  color: var(--text-secondary);
+}
+
+.afri-border {
+  border-color: var(--border-color);
+}
+
+.afri-brand-blue {
+  color: var(--brand-blue);
+}
+
+.afri-brand-bg {
+  background-color: var(--brand-blue);
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  body.afri-scroll-ready .afri-reveal,
+  body.afri-scroll-ready .afri-image-reveal,
+  .afri-fade-in,
+  .afri-fade-up {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .afri-hover-lift,
+  .afri-image-reveal img,
+  .afri-image-hover img,
+  .group {
+    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* =========================================
+   AFRIYOUTH HERO — DARK MODE
+   Scoped overrides: preserves Light Mode
+========================================= */
+
+[data-theme="dark"] .afri-hero {
+  background-color: #0D0624;
+}
+
+/* Main cream backgrounds become dark surfaces */
+[data-theme="dark"] .afri-hero [class~="bg-[#F7F2E7]"] {
+  background-color: #17102F !important;
+}
+
+/* White content cards become dark surfaces.
+   Keep the Polaroid photo cards white. */
+[data-theme="dark"] .afri-hero [class~="bg-white"]:not(.afri-photo-card) {
+  background-color: #17102F !important;
+}
+
+/* Secondary white surfaces */
+[data-theme="dark"] .afri-hero [class~="bg-white/70"] {
+  background-color: #21183D !important;
+}
+
+/* Original navy sections become deep brand backgrounds */
+[data-theme="dark"] .afri-hero [class~="bg-[#10466B]"] {
+  background-color: #0D0624 !important;
+}
+
+/* Main CTA buttons use the electric blue */
+[data-theme="dark"] .afri-hero a[class~="bg-[#10466B]"] {
+  background-color: #0301FF !important;
+  box-shadow: 0 5px 0 #0800A0;
+}
+
+/* Text — headings */
+[data-theme="dark"] .afri-hero [class~="text-[#10466B]"] {
+  color: #F7F2E7 !important;
+}
+
+/* Restore navy lettering on white photo cards */
+[data-theme="dark"] .afri-photo-card [class~="text-[#10466B]"] {
+  color: #10466B !important;
+}
+
+/* Body text */
+[data-theme="dark"] .afri-hero [class~="text-gray-700"],
+[data-theme="dark"] .afri-hero [class~="text-gray-600"],
+[data-theme="dark"] .afri-hero [class~="text-gray-500"] {
+  color: #C3BCD5 !important;
+}
+
+/* Muted text */
+[data-theme="dark"] .afri-hero [class~="text-gray-400"] {
+  color: #A49BB9 !important;
+}
+
+/* Decorative navy icons */
+[data-theme="dark"] .afri-hero [class~="text-[#10466B]/40"] {
+  color: #7775FF !important;
+}
+
+/* Electric blue accents */
+[data-theme="dark"] .afri-hero [class~="text-blue-600"] {
+  color: #7775FF !important;
+}
+
+/* Borders */
+[data-theme="dark"] .afri-hero [class~="border-gray-100"],
+[data-theme="dark"] .afri-hero [class~="border-gray-200"] {
+  border-color: #302844 !important;
+}
+
+/* Dark image frames */
+[data-theme="dark"] .afri-hero .afri-image-reveal > div[class~="bg-[#F7F2E7]"] {
+  background-color: #17102F !important;
+}
+
+/* Dark mode image background overlay */
+[data-theme="dark"] .afri-hero [class~="bg-[#10466B]/10"] {
+  background-color: rgba(13, 6, 36, 0.55) !important;
+}
+
+/* Hover states for portfolio cards */
+[data-theme="dark"] .afri-hero [class~="hover:bg-gray-50"]:hover {
+  background-color: #21183D !important;
+}
+
+/* Keep orange branding and imagery intact */
+[data-theme="dark"] .afri-hero [class~="text-[#F47721]"],
+[data-theme="dark"] .afri-hero [class~="bg-[#F47721]"] {
+  /* Existing orange accents are intentionally preserved */
+}
+
+/* Dark mode CTA hover */
+[data-theme="dark"] .afri-hero a[class~="bg-[#10466B]"]:hover {
+  background-color: #2523FF !important;
+}
+
+
+/* =========================================
+   AFRIYOUTH — ABOUT PAGE DARK MODE
+========================================= */
+
+[data-theme="dark"] .afri-about {
+  background-color: #0D0624;
+  color: #F7F2E7;
+}
+
+[data-theme="dark"] .afri-about [class~="bg-white"] {
+  background-color: #17102F !important;
+}
+
+[data-theme="dark"] .afri-about [class~="bg-[#F7F2E7]"] {
+  background-color: #17102F !important;
+}
+
+[data-theme="dark"] .afri-about [class~="bg-[#10466B]"] {
+  background-color: #0D0624 !important;
+}
+
+[data-theme="dark"] .afri-about a[class~="bg-[#10466B]"] {
+  background-color: #0301FF !important;
+}
+
+[data-theme="dark"] .afri-about [class~="text-[#10466B]"] {
+  color: #F7F2E7 !important;
+}
+
+[data-theme="dark"] .afri-about [class~="text-gray-700"],
+[data-theme="dark"] .afri-about [class~="text-gray-600"],
+[data-theme="dark"] .afri-about [class~="text-gray-500"] {
+  color: #C3BCD5 !important;
+}
+
+[data-theme="dark"] .afri-about [class~="border-[#10466B]/10"],
+[data-theme="dark"] .afri-about [class~="border-gray-100"],
+[data-theme="dark"] .afri-about [class~="border-gray-200"] {
+  border-color: #302844 !important;
+}
+
+/* Image belief overlay */
+[data-theme="dark"] .afri-about [class~="bg-white/95"] {
+  background-color: #17102F !important;
+}
+
+/* Keep the orange and cyan brand accents */
+[data-theme="dark"] .afri-about [class~="text-[#F47721]"] {
+  color: #F47721 !important;
+}
+
+[data-theme="dark"] .afri-about [class~="text-[#0891A2]"] {
+  color: #22C5D5 !important;
+}
+
+[data-theme="dark"] .afri-about [class~="text-cyan-300"] {
+  color: #67E8F9 !important;
+}
+
+[data-theme="dark"] .afri-about [class~="bg-[#F47721]"] {
+  background-color: #F47721 !important;
+}
+
+/* =========================================
+   AFRIYOUTH — CONTACT PAGE DARK MODE
+========================================= */
+
+[data-theme="dark"] .afri-contact {
+  background-color: #0D0624;
+  color: #F7F2E7;
+}
+
+[data-theme="dark"] .afri-contact [class~="bg-white"] {
+  background-color: #17102F !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="bg-[#F7F2E7]"] {
+  background-color: #21183D !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="bg-[#10466B]"] {
+  background-color: #0D0624 !important;
+}
+
+[data-theme="dark"] .afri-contact button[class~="bg-[#10466B]"],
+[data-theme="dark"] .afri-contact a[class~="bg-[#10466B]"] {
+  background-color: #0301FF !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="text-[#10466B]"] {
+  color: #F7F2E7 !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="text-gray-700"],
+[data-theme="dark"] .afri-contact [class~="text-gray-600"],
+[data-theme="dark"] .afri-contact [class~="text-gray-500"] {
+  color: #C3BCD5 !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="text-gray-400"] {
+  color: #A49BB9 !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="border-gray-100"],
+[data-theme="dark"] .afri-contact [class~="border-gray-200"] {
+  border-color: #302844 !important;
+}
+
+/* Contact form fields */
+[data-theme="dark"] .afri-contact input,
+[data-theme="dark"] .afri-contact textarea,
+[data-theme="dark"] .afri-contact select {
+  background-color: #21183D !important;
+  color: #F7F2E7 !important;
+  border-color: #403653 !important;
+}
+
+[data-theme="dark"] .afri-contact input::placeholder,
+[data-theme="dark"] .afri-contact textarea::placeholder {
+  color: #A49BB9 !important;
+}
+
+[data-theme="dark"] .afri-contact input:focus,
+[data-theme="dark"] .afri-contact textarea:focus,
+[data-theme="dark"] .afri-contact select:focus {
+  border-color: #22C5D5 !important;
+}
+
+[data-theme="dark"] .afri-contact option {
+  background-color: #17102F;
+  color: #F7F2E7;
+}
+
+/* Submission confirmation */
+[data-theme="dark"] .afri-contact [class~="bg-[#F7F2E7]"] {
+  background-color: #21183D !important;
+}
+
+/* Brand accents */
+[data-theme="dark"] .afri-contact [class~="text-[#F47721]"] {
+  color: #F47721 !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="bg-[#F47721]"] {
+  background-color: #F47721 !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="text-[#0891A2]"] {
+  color: #22C5D5 !important;
+}
+
+[data-theme="dark"] .afri-contact [class~="text-cyan-300"] {
+  color: #67E8F9 !important;
+}
+
+/* Dark mode hover states */
+[data-theme="dark"] .afri-about a[class~="bg-[#10466B]"]:hover,
+[data-theme="dark"] .afri-contact button[class~="bg-[#10466B]"]:hover {
+  background-color: #2523FF !important;
+}
+
+
+/* =========================================
+   AFRIYOUTH — FUNDRAISING DARK MODE
+========================================= */
+
+[data-theme="dark"] .afri-fundraising {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+}
+
+/* Page backgrounds */
+[data-theme="dark"] .afri-fundraising [class~="bg-white"] {
+  background-color: var(--surface-bg) !important;
+}
+
+[data-theme="dark"] .afri-fundraising [class~="bg-[#F7F2E7]"] {
+  background-color: var(--surface-secondary) !important;
+}
+
+[data-theme="dark"] .afri-fundraising [class~="bg-[#10466B]"] {
+  background-color: var(--page-bg) !important;
+}
+
+/* Primary buttons */
+[data-theme="dark"] .afri-fundraising a[class~="bg-[#10466B]"] {
+  background-color: var(--brand-blue) !important;
+}
+
+[data-theme="dark"] .afri-fundraising a[class~="bg-[#10466B]"]:hover {
+  background-color: #2523FF !important;
+}
+
+/* Headings and brand-colored text */
+[data-theme="dark"] .afri-fundraising [class~="text-[#10466B]"] {
+  color: var(--text-primary) !important;
+}
+
+/* Body text */
+[data-theme="dark"] .afri-fundraising [class~="text-gray-700"],
+[data-theme="dark"] .afri-fundraising [class~="text-gray-600"],
+[data-theme="dark"] .afri-fundraising [class~="text-gray-500"] {
+  color: var(--text-secondary) !important;
+}
+
+/* Borders and dividers */
+[data-theme="dark"] .afri-fundraising [class~="border-gray-100"],
+[data-theme="dark"] .afri-fundraising [class~="border-gray-200"],
+[data-theme="dark"] .afri-fundraising [class~="border-[#10466B]/10"] {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .afri-fundraising [class~="bg-gray-100"] {
+  background-color: var(--border-color) !important;
+}
+
+/* Timeline markers */
+[data-theme="dark"] .afri-fundraising [class~="border-white"] {
+  border-color: var(--surface-bg) !important;
+}
+
+/* Orange branding remains intact */
+[data-theme="dark"] .afri-fundraising [class~="text-[#F47721]"] {
+  color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] .afri-fundraising [class~="bg-[#F47721]"] {
+  background-color: var(--brand-orange) !important;
+}
+
+/* Cyan branding remains visible */
+[data-theme="dark"] .afri-fundraising [class~="text-[#0891A2]"] {
+  color: #22C5D5 !important;
+}
+
+[data-theme="dark"] .afri-fundraising [class~="text-cyan-300"] {
+  color: #67E8F9 !important;
+}
+
+/* =========================================
+   AFRIYOUTH — INSIGHTS DARK MODE
+========================================= */
+
+[data-theme="dark"] .afri-insights {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+}
+
+/* Main backgrounds */
+[data-theme="dark"] .afri-insights [class~="bg-white"] {
+  background-color: var(--surface-bg) !important;
+}
+
+[data-theme="dark"] .afri-insights [class~="bg-[#F7F2E7]"] {
+  background-color: var(--surface-secondary) !important;
+}
+
+[data-theme="dark"] .afri-insights [class~="bg-[#10466B]"] {
+  background-color: var(--page-bg) !important;
+}
+
+/* Navy CTA buttons and filter buttons */
+[data-theme="dark"] .afri-insights a[class~="bg-[#10466B]"],
+[data-theme="dark"] .afri-insights button[class~="bg-[#10466B]"] {
+  background-color: var(--brand-blue) !important;
+}
+
+/* Navy text becomes cream */
+[data-theme="dark"] .afri-insights [class~="text-[#10466B]"] {
+  color: var(--text-primary) !important;
+}
+
+/* Body text */
+[data-theme="dark"] .afri-insights [class~="text-gray-700"],
+[data-theme="dark"] .afri-insights [class~="text-gray-600"],
+[data-theme="dark"] .afri-insights [class~="text-gray-500"] {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .afri-insights [class~="text-gray-400"] {
+  color: #A49BB9 !important;
+}
+
+/* Article cards and borders */
+[data-theme="dark"] .afri-insights [class~="border-gray-100"],
+[data-theme="dark"] .afri-insights [class~="border-gray-200"] {
+  border-color: var(--border-color) !important;
+}
+
+/* Featured article card */
+[data-theme="dark"] .afri-insights [class~="bg-white"] {
+  color: var(--text-primary);
+}
+
+/* Category filters */
+[data-theme="dark"] .afri-insights button:not([class~="bg-[#10466B]"]) {
+  background-color: var(--surface-bg);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .afri-insights button:hover {
+  border-color: #22C5D5;
+  color: #22C5D5;
+}
+
+/* Article category labels */
+[data-theme="dark"] .afri-insights [class~="bg-[#10466B]"] {
+  color: var(--text-primary);
+}
+
+/* Orange accents */
+[data-theme="dark"] .afri-insights [class~="text-[#F47721]"] {
+  color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] .afri-insights [class~="bg-[#F47721]"] {
+  background-color: var(--brand-orange) !important;
+}
+
+/* Cyan accents */
+[data-theme="dark"] .afri-insights [class~="text-[#0891A2]"] {
+  color: #22C5D5 !important;
+}
+
+[data-theme="dark"] .afri-insights [class~="text-cyan-300"] {
+  color: #67E8F9 !important;
+}
+
+/* Hover effects */
+[data-theme="dark"] .afri-insights .group:hover {
+  border-color: rgba(34, 197, 213, 0.4);
+}
+
+[data-theme="dark"] .afri-insights [class~="hover:text-[#F47721]"]:hover {
+  color: var(--brand-orange) !important;
+}
+
+/* Smooth theme transitions */
+.afri-fundraising,
+.afri-insights,
+.afri-fundraising article,
+.afri-insights article,
+.afri-insights button {
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+
+/* =========================================
+   AFRIYOUTH — ALL PROGRAM PAGES DARK MODE
+   Shared by all eight programs
+========================================= */
+
+[data-theme="dark"] .afri-program-page {
+  background-color: var(--page-bg);
+  color: var(--text-primary);
+}
+
+/* -----------------------------------------
+   SECTION BACKGROUNDS
+----------------------------------------- */
+
+/* Cream sections */
+[data-theme="dark"] .afri-program-page [class~="bg-[#F7F2E7]"] {
+  background-color: var(--surface-secondary) !important;
+}
+
+/* White cards */
+[data-theme="dark"] .afri-program-page [class~="bg-white"] {
+  background-color: var(--surface-bg) !important;
+}
+
+/* Navy sections */
+[data-theme="dark"] .afri-program-page [class~="bg-[#10466B]"] {
+  background-color: var(--page-bg) !important;
+}
+
+/* Inner hero panel */
+[data-theme="dark"] .afri-program-page [class~="bg-[#0D3C5C]"] {
+  background-color: var(--surface-bg) !important;
+}
+
+/* -----------------------------------------
+   TEXT COLORS
+----------------------------------------- */
+
+/* Main navy text */
+[data-theme="dark"] .afri-program-page [class~="text-[#10466B]"] {
+  color: var(--text-primary) !important;
+}
+
+/* Gray paragraphs */
+[data-theme="dark"] .afri-program-page [class~="text-gray-700"],
+[data-theme="dark"] .afri-program-page [class~="text-gray-600"],
+[data-theme="dark"] .afri-program-page [class~="text-gray-500"] {
+  color: var(--text-secondary) !important;
+}
+
+/* -----------------------------------------
+   BUTTONS
+----------------------------------------- */
+
+/* Primary navy button becomes electric blue */
+[data-theme="dark"] .afri-program-page a[class~="bg-[#10466B]"] {
+  background-color: var(--brand-blue) !important;
+  color: #FFFFFF !important;
+}
+
+/* Primary button hover */
+[data-theme="dark"] .afri-program-page a[class~="bg-[#10466B]"]:hover {
+  background-color: #2523FF !important;
+}
+
+/* Secondary outlined button */
+[data-theme="dark"] .afri-program-page a[class~="border-[#10466B]/20"] {
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .afri-program-page a[class~="border-[#10466B]/20"]:hover {
+  border-color: var(--brand-orange) !important;
+  color: var(--brand-orange) !important;
+}
+
+/* Orange CTA */
+[data-theme="dark"] .afri-program-page a[class~="bg-[#F47721]"] {
+  background-color: var(--brand-orange) !important;
+  color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .afri-program-page a[class~="bg-[#F47721]"]:hover {
+  background-color: var(--brand-blue) !important;
+}
+
+/* -----------------------------------------
+   BORDERS AND DIVIDERS
+----------------------------------------- */
+
+[data-theme="dark"] .afri-program-page [class~="border-[#10466B]/10"],
+[data-theme="dark"] .afri-program-page [class~="border-[#10466B]/20"] {
+  border-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .afri-program-page [class~="bg-[#10466B]/10"] {
+  background-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .afri-program-page [class~="border-b"] {
+  border-color: var(--border-color);
+}
+
+/* -----------------------------------------
+   BRAND ACCENTS
+----------------------------------------- */
+
+/* Orange stays orange */
+[data-theme="dark"] .afri-program-page [class~="text-[#F47721]"] {
+  color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] .afri-program-page [class~="bg-[#F47721]"] {
+  background-color: var(--brand-orange) !important;
+}
+
+/* Cyan stays visible */
+[data-theme="dark"] .afri-program-page [class~="text-[#0891A2]"] {
+  color: #22C5D5 !important;
+}
+
+[data-theme="dark"] .afri-program-page [class~="text-cyan-300"] {
+  color: #67E8F9 !important;
+}
+
+/* -----------------------------------------
+   DARK SECTION DETAILS
+----------------------------------------- */
+
+/* Keep white text readable in navy sections */
+[data-theme="dark"] .afri-program-page section[class~="text-white"] {
+  color: var(--text-primary);
+}
+
+/* Preserve subtle white overlays */
+[data-theme="dark"] .afri-program-page [class~="border-white/15"],
+[data-theme="dark"] .afri-program-page [class~="border-white/20"],
+[data-theme="dark"] .afri-program-page [class~="border-white/10"] {
+  border-color: rgba(195, 188, 213, 0.16) !important;
+}
+
+/* -----------------------------------------
+   THEME TRANSITIONS
+----------------------------------------- */
+
+.afri-program-page,
+.afri-program-page section,
+.afri-program-page article,
+.afri-program-page a {
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+
+/* AfriYouth Privacy Page — Dark Mode */
+
+
+/* =========================================
+   AFRIYOUTH — PRIVACY PAGE DARK MODE
+   Scoped exclusively to PrivacyPolicy.jsx
+========================================= */
+
+[data-theme="dark"] .afri-page {
+  background-color: #0D0624;
+  color: #F7F2E7;
+}
+
+/* Replace electric blue with normal AfriYouth dark purple */
+[data-theme="dark"] .afri-page .afri-brand-bg {
+  background-color: #0D0624 !important;
+}
+
+/* Content cards */
+[data-theme="dark"] .afri-page .afri-surface {
+  background-color: #17102F;
+  color: #F7F2E7;
+}
+
+/* Card borders */
+[data-theme="dark"] .afri-page .afri-border {
+  border-color: #302844;
+}
+
+/* Headings */
+[data-theme="dark"] .afri-page .afri-text-primary {
+  color: #F7F2E7;
+}
+
+/* Paragraphs */
+[data-theme="dark"] .afri-page .afri-text-secondary {
+  color: #C3BCD5;
+}
