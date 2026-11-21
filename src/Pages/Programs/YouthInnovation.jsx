@@ -24,7 +24,7 @@ const program = {
     "Impact measurement and learning"
   ],
   "processTitle": "A pathway from discovery to readiness.",
-  "processIntro": "Our model gives promising ideas the time, structure and support needed to become tested solutions and investment-ready ventures.",
+  "processIntro": "From Research to Prototype, participants move through problem identification, evidence-led design and testing. Solutions can then advance through Enterprise Track Incubation or the Policy Track, depending on the nature of the challenge.",
   "stages": [
     {
       "title": "Incubation",

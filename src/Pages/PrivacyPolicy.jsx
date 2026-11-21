@@ -401,7 +401,7 @@ const PrivacyPolicy = () => {
 
           <Link
             to="/"
-            className="inline-flex items-center gap-2 bg-[#F47721] hover:bg-[#e56512] text-white px-6 py-3 rounded-md text-sm font-semibold transition-colors"
+            className="inline-flex items-center gap-2 bg-[#F47721] dark:bg-[#C723DF] hover:bg-[#e56512] dark:hover:bg-[#A91CC0] text-white px-6 py-3 rounded-md text-sm font-semibold transition-colors"
           >
             Back to Home
             <ArrowRight size={16} />

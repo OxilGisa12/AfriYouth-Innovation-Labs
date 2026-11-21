@@ -147,6 +147,8 @@ body.afri-scroll-ready .afri-image-reveal.afri-in-view {
 
 /* LIGHT MODE — EXISTING BRAND IDENTITY */
 
+
+
 :root {
   color-scheme: light;
 
@@ -183,7 +185,7 @@ body.afri-scroll-ready .afri-image-reveal.afri-in-view {
   --border-color: #302844;
 
   --brand-blue: #0301FF;
-  --brand-orange: #F47721;
+  --brand-orange: #C723DF;
 
   --navbar-bg: #0D0624;
   --card-bg: #17102F;
@@ -422,7 +424,7 @@ body {
 
 /* Keep the orange and cyan brand accents */
 [data-theme="dark"] .afri-about [class~="text-[#F47721]"] {
-  color: #F47721 !important;
+  color: var(--brand-orange) !important;
 }
 
 [data-theme="dark"] .afri-about [class~="text-[#0891A2]"] {
@@ -434,7 +436,7 @@ body {
 }
 
 [data-theme="dark"] .afri-about [class~="bg-[#F47721]"] {
-  background-color: #F47721 !important;
+  background-color: var(--brand-orange) !important;
 }
 
 /* =========================================
@@ -514,11 +516,11 @@ body {
 
 /* Brand accents */
 [data-theme="dark"] .afri-contact [class~="text-[#F47721]"] {
-  color: #F47721 !important;
+  color: var(--brand-orange) !important;
 }
 
 [data-theme="dark"] .afri-contact [class~="bg-[#F47721]"] {
-  background-color: #F47721 !important;
+  background-color: var(--brand-orange) !important;
 }
 
 [data-theme="dark"] .afri-contact [class~="text-[#0891A2]"] {
@@ -918,4 +920,173 @@ body {
 /* Paragraphs */
 [data-theme="dark"] .afri-page .afri-text-secondary {
   color: #C3BCD5;
+}
+
+
+/* =========================================
+   AFRIYOUTH — BRAND TYPOGRAPHY
+========================================= */
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/Gilroy-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("/fonts/Gilroy-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Gilroy for body copy across the full website */
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 300;
+}
+
+/* Poppins for all headings and heading elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Preserve the available Gilroy weights for stronger body copy */
+.font-bold,
+.font-extrabold,
+.font-black {
+  font-weight: 800;
+}
+
+/* Use the updated accent in light mode without changing other colors. */
+[data-theme="light"] [class*="text-[#F47721]"] {
+  color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="bg-[#F47721]"] {
+  background-color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="border-[#F47721]"] {
+  border-color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="ring-[#F47721]"] {
+  --tw-ring-color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="hover:text-[#F47721]"]:hover {
+  color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="hover:border-[#F47721]"]:hover {
+  border-color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="hover:bg-[#F47721]"]:hover {
+  background-color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="bg-[#F47721]/10"] {
+  background-color: rgba(199, 35, 223, 0.10) !important;
+}
+
+[data-theme="light"] [class*="border-[#F47721]/50"] {
+  border-color: rgba(199, 35, 223, 0.50) !important;
+}
+
+[data-theme="light"] [class*="text-orange-500"] {
+  color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="bg-orange-600"] {
+  background-color: #C723DF !important;
+}
+
+[data-theme="light"] [class*="hover:bg-orange-600"]:hover {
+  background-color: #A91CC0 !important;
+}
+
+[data-theme="light"] [class*="bg-orange-50"] {
+  background-color: rgba(199, 35, 223, 0.10) !important;
+}
+
+[data-theme="light"] [class*="shadow-orange-500"] {
+  --tw-shadow-color: rgba(199, 35, 223, 0.20) !important;
+}
+
+/* Dark mode: replace every existing light-mode orange accent consistently. */
+[data-theme="dark"] [class*="text-[#F47721]"] {
+  color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="bg-[#F47721]"] {
+  background-color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="border-[#F47721]"] {
+  border-color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="ring-[#F47721]"] {
+  --tw-ring-color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="hover:text-[#F47721]"]:hover {
+  color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="hover:border-[#F47721]"]:hover {
+  border-color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="hover:bg-[#F47721]"]:hover {
+  background-color: var(--brand-orange) !important;
+}
+
+/* Preserve accent alpha levels in backgrounds and borders. */
+[data-theme="dark"] [class*="bg-[#F47721]/10"] {
+  background-color: rgba(199, 35, 223, 0.10) !important;
+}
+
+[data-theme="dark"] [class*="border-[#F47721]/50"] {
+  border-color: rgba(199, 35, 223, 0.50) !important;
+}
+
+/* Tailwind orange utility colors that represent the same accent. */
+[data-theme="dark"] [class*="text-orange-500"] {
+  color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="bg-orange-600"] {
+  background-color: var(--brand-orange) !important;
+}
+
+[data-theme="dark"] [class*="hover:bg-orange-600"]:hover {
+  background-color: #A91CC0 !important;
+}
+
+[data-theme="dark"] [class*="hover:bg-[#e56512]"]:hover {
+  background-color: #A91CC0 !important;
+}
+
+[data-theme="dark"] [class*="bg-orange-50"] {
+  background-color: rgba(199, 35, 223, 0.10) !important;
+}
+
+[data-theme="dark"] [class*="shadow-orange-500"] {
+  --tw-shadow-color: rgba(199, 35, 223, 0.20) !important;
 }

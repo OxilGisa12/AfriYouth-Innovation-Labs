@@ -68,8 +68,6 @@ const About = () => {
       {/* HERO */}
 
       <section className="relative bg-[#F7F2E7] px-6 py-24 md:py-32">
-        <div className="absolute -right-24 -top-24 h-80 w-80 rounded-full bg-[#F47721]/10 blur-3xl" />
-
         <div className="relative mx-auto grid max-w-[1150px] items-center gap-14 md:grid-cols-2">
 
           <div>

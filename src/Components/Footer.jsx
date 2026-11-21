@@ -136,7 +136,7 @@ const Footer = () => {
             <div className="md:flex md:justify-end">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#F47721] hover:bg-[#e56512] text-white px-5 py-3 rounded-md font-semibold text-xs transition-colors duration-200 group"
+                className="inline-flex items-center gap-2 bg-[#F47721] dark:bg-[#C723DF] hover:bg-[#e56512] dark:hover:bg-[#A91CC0] text-white px-5 py-3 rounded-md font-semibold text-xs transition-colors duration-200 group"
               >
                 Connect With Us
 

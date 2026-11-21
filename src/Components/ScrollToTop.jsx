@@ -34,7 +34,7 @@ const ScrollToTop = () => {
         flex items-center justify-center
         w-12 h-12 rounded-full
         bg-[#F47721] text-white
-        shadow-lg shadow-orange-500/20
+        shadow-lg shadow-orange-500/20 dark:shadow-[#C723DF]/20
         hover:bg-[#10466B]
         hover:-translate-y-1
         active:scale-90
