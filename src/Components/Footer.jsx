@@ -80,7 +80,7 @@ const Footer = () => {
                   aria-label={social.name}
                   className={`text-sm transition-colors duration-200 ${
                     social.href
-                      ? "text-white/65 hover:text-[#F47721]"
+                      ? "text-white/65 hover:text-white"
                       : "text-white/40 cursor-default"
                   }`}
                 >
@@ -102,7 +102,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-[13px] text-white/60 hover:text-[#F47721] transition-colors duration-200"
+                      className="text-[13px] text-white/60 hover:text-white transition-colors duration-200"
                     >
                       {link.name}
                     </Link>
@@ -118,7 +118,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
 
             <div>
-              <p className="text-[#F47721] text-[10px] font-bold uppercase tracking-[0.18em] mb-2">
+              <p className="text-white text-[10px] font-bold uppercase tracking-[0.18em] mb-2">
                 Let's Build Together
               </p>
 
@@ -136,7 +136,7 @@ const Footer = () => {
             <div className="md:flex md:justify-end">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#F47721] dark:bg-[#C723DF] hover:bg-[#e56512] dark:hover:bg-[#A91CC0] text-white px-5 py-3 rounded-md font-semibold text-xs transition-colors duration-200 group"
+                className="inline-flex items-center gap-2 bg-white dark:bg-[#C723DF] hover:bg-[#e56512] dark:hover:bg-[#A91CC0] text-white px-5 py-3 rounded-md font-semibold text-xs transition-colors duration-200 group"
               >
                 Connect With Us
 
@@ -156,12 +156,12 @@ const Footer = () => {
             to="/contact"
             className="flex items-center gap-2 hover:text-white transition-colors"
           >
-            <Mail size={15} className="text-[#F47721]" />
+            <Mail size={15} className="text-white" />
             Contact AfriYouth
           </Link>
 
           <div className="flex items-center gap-2">
-            <MapPin size={15} className="text-[#F47721]" />
+            <MapPin size={15} className="text-white" />
             Advancing African solutions
           </div>
         </div>
