@@ -21,10 +21,10 @@ const Navbar = () => {
   const isDark = theme === "dark";
 
   const programs = [
+    { name: "Policy Innovation Challenge", href: "/programs/policy-innovation" },
+    { name: "Policy & Governance Lab", href: "/programs/policy-governance" },
     { name: "Youth Innovation & Venture Lab", href: "/programs/youth-innovation" },
     { name: "Research & Evidence Lab", href: "/programs/research-evidence" },
-    { name: "Policy & Governance Lab", href: "/programs/policy-governance" },
-    { name: "Policy Innovation Challenge", href: "/programs/policy-innovation" },
     { name: "Strategic Foresight & Futures Lab", href: "/programs/strategic-foresight" },
     { name: "Career & Professional Development Academy", href: "/programs/career-development" },
     { name: "Impact & Learning Services", href: "/programs/impact-learning" },
@@ -34,9 +34,9 @@ const Navbar = () => {
   const links = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Contact Us", href: "/contact" },
     { name: "FundRaising", href: "/fundraising" }, 
-      { name: "Insights", href: "/insights" },
+    { name: "Insights", href: "/insights" },
+    { name: "Contact Us", href: "/contact" },
     { name: "", href: "#members" }
  
   ];
@@ -141,7 +141,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden xl:flex items-center gap-6">
-            {links.slice(0, 3).map((link) =>
+            {links.slice(0, 2).map((link) =>
               renderNavigationLink(link)
             )}
 
@@ -216,7 +216,7 @@ const Navbar = () => {
               )}
             </div>
 
-            {links.slice(3).map((link) =>
+            {links.slice(2).map((link) =>
               renderNavigationLink(link)
             )}
           </div>
@@ -258,7 +258,7 @@ const Navbar = () => {
         {mobileOpen && (
           <div className={`xl:hidden border-t py-5 transition-colors duration-300 ${borderColor}`}>
             <div className="flex flex-col gap-1">
-              {links.slice(0, 3).map((link) =>
+              {links.slice(0, 2).map((link) =>
                 renderNavigationLink(link, true)
               )}
 
@@ -307,7 +307,7 @@ const Navbar = () => {
                 )}
               </div>
 
-              {links.slice(3).map((link) =>
+              {links.slice(2).map((link) =>
                 renderNavigationLink(link, true)
               )}
 

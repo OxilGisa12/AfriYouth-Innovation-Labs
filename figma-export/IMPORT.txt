@@ -1,0 +1,3 @@
+AfriYouth Figma import pack
+
+For a single import, drag AfriYouth-All-Pages.svg into Figma. It contains all desktop and mobile screens plus the design system on one large canvas. For individual frames, import the route-specific SVG files separately. Text and vector elements can be edited after import. Start with 00-design-system.svg for colors and typography. /reach-us is the same page as /contact and is represented by the contact files. These are editable page mockups based on the existing site structure, not a native .fig file.
