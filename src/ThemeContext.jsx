@@ -4,10 +4,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 const ThemeContext = createContext();
 
 const getInitialTheme = () => {
-  const savedTheme = localStorage.getItem("afriyouth-theme");
+  // Only remember the theme within the current browser tab session.
+  // A new session always starts in Light Mode.
+  const savedTheme = sessionStorage.getItem("afriyouth-theme");
   const initialTheme = savedTheme === "dark" ? "dark" : "light";
 
-  // Apply the theme before the first React render.
+  // Apply theme before the first React render.
   document.documentElement.setAttribute("data-theme", initialTheme);
 
   return initialTheme;
@@ -18,7 +20,9 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("afriyouth-theme", theme);
+
+    // Save only for the current browser session.
+    sessionStorage.setItem("afriyouth-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
